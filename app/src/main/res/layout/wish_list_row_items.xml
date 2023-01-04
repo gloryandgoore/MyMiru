@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:cardView="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
     android:layout_marginStart="16dp"
-    android:layout_marginRight="4dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginEnd="4dp"
-    app:cardCornerRadius="6dp"
-
+    android:layout_marginEnd="16dp"
+    cardView:cardCornerRadius="8dp"
+    cardView:cardElevation="8dp"
+    android:id="@+id/wish_card"
+    android:background="@color/ChineseViolet"
     >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/item_wish_image"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:scaleType="centerCrop"
+    cardView:layout_constraintStart_toStartOf="parent"
+    cardView:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/item_text_wish"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        cardView:layout_constraintLeft_toRightOf="@id/item_wish_image"
+        cardView:layout_constraintRight_toRightOf="parent"
+        cardView:layout_constraintTop_toTopOf="parent"
+        cardView:layout_constraintBottom_toBottomOf="parent"
+        android:lines="2"
+        android:padding="5dp"
+        android:textStyle="bold"
+        tools:text="@tools:sample/full_names"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textColor="@android:color/black"
+        android:gravity="center_vertical"
+        android:layout_margin="8dp"
         />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
