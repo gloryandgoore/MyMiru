@@ -18,36 +18,36 @@
 
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayoutTop"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/Snow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabIndicatorColor="@color/DarkCyan"
-        app:tabSelectedTextColor="@color/DarkCyan"
-        app:tabTextColor="@color/ChineseViolet">
+<!--    <com.google.android.material.tabs.TabLayout-->
+<!--        android:id="@+id/tabLayoutTop"-->
+<!--        android:layout_width="409dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:layout_marginEnd="16dp"-->
+<!--        android:background="@color/Snow"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:tabIndicatorColor="@color/DarkCyan"-->
+<!--        app:tabSelectedTextColor="@color/DarkCyan"-->
+<!--        app:tabTextColor="@color/ChineseViolet">-->
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home" />
+<!--        <com.google.android.material.tabs.TabItem-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Home" />-->
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="WishList" />
+<!--        <com.google.android.material.tabs.TabItem-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="WishList" />-->
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Surprise Me" />
-    </com.google.android.material.tabs.TabLayout>
+<!--        <com.google.android.material.tabs.TabItem-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Surprise Me" />-->
+<!--    </com.google.android.material.tabs.TabLayout>-->
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -55,24 +55,24 @@
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tabLayoutTop">
+        app:layout_constraintTop_toBottomOf="@+id/testTV">
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/banner_viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_indicator"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:background="#00000000"
-            android:backgroundTint="#00000000"
-            app:tabBackground="@drawable/indicator_selector"
-            app:tabIndicatorHeight="0dp"
-            app:tabMaxWidth="15dp" />
+<!--        <com.google.android.material.tabs.TabLayout-->
+<!--            android:id="@+id/tab_indicator"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:background="#00000000"-->
+<!--            android:backgroundTint="#00000000"-->
+<!--            app:tabBackground="@drawable/indicator_selector"-->
+<!--            app:tabIndicatorHeight="0dp"-->
+<!--            app:tabMaxWidth="15dp" />-->
 
     </RelativeLayout>
 
@@ -85,13 +85,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/go_to_wish_button"
         android:layout_margin="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_baseline_star_border_24"
+        app:fabSize="normal"
         android:background="@color/DarkCyan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/go_to_surprise_button"
+        android:layout_margin="15dp"
+        app:fabSize="normal"
+        android:src="@drawable/ic_baseline_shuffle_24"
+        android:backgroundTint="@color/ChineseViolet"
+        app:layout_constraintBottom_toTopOf="@id/go_to_wish_button"
+        app:layout_constraintStart_toStartOf="@+id/go_to_wish_button"
+        app:layout_constraintEnd_toEndOf="@id/go_to_wish_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

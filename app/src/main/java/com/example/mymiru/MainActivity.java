@@ -27,7 +27,7 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity implements  NetworkingService.NetworkingListener, AnimeDetailsRecyclerView.ItemClickListener{
 
     BannerAnimePagerAdapter bannerAnimePagerAdapter;
-    TabLayout indicatorTab, screenTab;
+//    TabLayout indicatorTab, screenTab;
     ViewPager bannerAnimeViewPager;
     List<HeaderAnimes> headerAnimesList;
     MainRecyclerAdapter mainRecyclerAdapter;
@@ -35,15 +35,17 @@ public class MainActivity extends AppCompatActivity implements  NetworkingServic
     List<AllGenres> allGenresList;
     String genre;
     FloatingActionButton wishButton;
+    FloatingActionButton surpriseButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        indicatorTab = findViewById(R.id.tab_indicator);
-        screenTab = findViewById(R.id.tabLayoutTop);
+//        indicatorTab = findViewById(R.id.tab_indicator);
+//        screenTab = findViewById(R.id.tabLayoutTop);
         wishButton = findViewById(R.id.go_to_wish_button);
+        surpriseButton = findViewById(R.id.go_to_surprise_button);
         Intent intent = getIntent();
         genre = intent.getStringExtra("genre");
 
@@ -63,38 +65,38 @@ public class MainActivity extends AppCompatActivity implements  NetworkingServic
 
         setBannerAnimePagerAdapter(headerAnimesList);
 
-        screenTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()){
-                    case 1:
-                        setBannerAnimePagerAdapter(headerAnimesList);
-                        return;
-
-                    case 2:
-                        setBannerAnimePagerAdapter(headerAnimesList);
-                        return;
-
-                    case 3:
-                        setBannerAnimePagerAdapter(headerAnimesList);
-                        return;
-
-                    default:
-                        setBannerAnimePagerAdapter(headerAnimesList);
-
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+//        screenTab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                switch (tab.getPosition()){
+//                    case 1:
+//                        setBannerAnimePagerAdapter(headerAnimesList);
+//                        return;
+//
+//                    case 2:
+//                        setBannerAnimePagerAdapter(headerAnimesList);
+//                        return;
+//
+//                    case 3:
+//                        setBannerAnimePagerAdapter(headerAnimesList);
+//                        return;
+//
+//                    default:
+//                        setBannerAnimePagerAdapter(headerAnimesList);
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
         ArrayList<GenreItem> actionCategoryList = new ArrayList<>();
 
         actionCategoryList.add(new GenreItem(1, "Naruto", "https://m.media-amazon.com/images/S/pv-target-images/45fa87b65b1f9f0e66a23111f778ba198710f3520fc8f9ecde24885b3eca5218._UR1920,1080_UX400_UY225_.jpg", ""));
@@ -129,17 +131,25 @@ public class MainActivity extends AppCompatActivity implements  NetworkingServic
             }
         });
 
+        surpriseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SurpriseMe.class));
+
+            }
+        });
+
     }
 
     private void setBannerAnimePagerAdapter(List<HeaderAnimes> headerAnimesList){
         bannerAnimePagerAdapter = new BannerAnimePagerAdapter(this, headerAnimesList);
         bannerAnimeViewPager = findViewById(R.id.banner_viewPager);
         bannerAnimeViewPager.setAdapter(bannerAnimePagerAdapter);
-        indicatorTab.setupWithViewPager(bannerAnimeViewPager);
+//        indicatorTab.setupWithViewPager(bannerAnimeViewPager);
 
         Timer slideTimer = new Timer();
         slideTimer.scheduleAtFixedRate(new AutoSlider(), 4000, 6000);
-        indicatorTab.setupWithViewPager(bannerAnimeViewPager, true);
+//        indicatorTab.setupWithViewPager(bannerAnimeViewPager, true);
     }
 
     @Override
